@@ -17,6 +17,618 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
+            .grid{
+    width: 100%;
+    display: block; /*đề phòng nếu đối tượng ko phải block vẫn dùng được*/
+    padding: 0;
+}
+.grid.wide{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.row{
+    display: flex; /* chứa các columns, giúp các columns nằm theo chiều ngang  */
+    flex-wrap: wrap; /* khi tổng chiều ngang columns vượt quá kích thước row, cho columns xuống hàng */
+    /* Moblie */
+    margin-left: -4px;
+    margin-right: -4px;
+}
+.row.no-gutters{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.col{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.row.no-gutters .col{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.c-0{
+    display: none;
+}
+/* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
+.c-1{
+    flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
+    max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
+}
+.c-2{
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+.c-2-4{
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+.c-3{
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.c-4{
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+.c-5{
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+}
+.c-6{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.c-7{
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+}
+.c-8{
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+.c-9{
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.c-10{
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}
+.c-11{
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+}
+.c-12{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+
+.c-o-1{
+    margin-left: 8.33333%;
+}
+.c-o-2{
+    margin-left: 16.66667%;
+}
+.c-o-2-4{
+    margin-left: 20%;
+}
+.c-o-3{
+    margin-left: 25%;
+}
+.c-o-4{
+    margin-left: 33.33333%;
+}
+.c-o-5{
+    margin-left: 41.66667%;
+}
+.c-o-6{
+    margin-left: 50%;
+}
+.c-o-7{
+    margin-left: 58.33333%;
+}
+.c-o-8{
+    margin-left: 66.66667%;
+}
+.c-o-9{
+    margin-left: 75%;
+}
+.c-o-10{
+    margin-left: 83.33333%;
+}
+.c-o-11{
+    margin-left: 91.66667%;
+}
+
+/* Tablet - PC low resoluation */
+@media (min-width: 740px) and (max-width: 1023px){
+    .wide{
+        width: 644px;
+    }
+}
+/* > Tablet */
+@media (min-width: 740px){
+    .row{
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+    .col{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .m-0{
+        display: none;
+    }
+    .m-1,
+    .m-2,
+    .m-2-4,
+    .m-3,
+    .m-4,
+    .m-5,
+    .m-6,
+    .m-7,
+    .m-8,
+    .m-9,
+    .m-10,
+    .m-11,
+    .m-12{
+        display: block;
+    } 
+    /* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
+    .m-1{
+        flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
+        max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
+    }
+    .m-2{
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+    .m-2-4{
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .m-3{
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .m-4{
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    .m-5{
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+    .m-6{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .m-7{
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+    .m-8{
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+    .m-9{
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .m-10{
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+    .m-11{
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+    .m-12{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .m-o-1{
+        margin-left: 8.33333%;
+    }
+    .m-o-2{
+        margin-left: 16.66667%;
+    }
+    .m-o-2-4{
+        margin-left: 20%;
+    }
+    .m-o-3{
+        margin-left: 25%;
+    }
+    .m-o-4{
+        margin-left: 33.33333%;
+    }
+    .m-o-5{
+        margin-left: 41.66667%;
+    }
+    .m-o-6{
+        margin-left: 50%;
+    }
+    .m-o-7{
+        margin-left: 58.33333%;
+    }
+    .m-o-8{
+        margin-left: 66.66667%;
+    }
+    .m-o-9{
+        margin-left: 75%;
+    }
+    .m-o-10{
+        margin-left: 83.33333%;
+    }
+    .m-o-11{
+        margin-left: 91.66667%;
+    }
+}
+
+/* PC low resoluation */
+@media (min-width: 1113px){
+    .row{
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+    .col{
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .l-0{
+        display: none;
+    }
+    .l-1,
+    .l-2,
+    .l-2-4,
+    .l-3,
+    .l-4,
+    .l-5,
+    .l-6,
+    .l-7,
+    .l-8,
+    .l-9,
+    .l-10,
+    .l-11,
+    .l-12{
+        display: block;
+    } 
+    /* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
+    .l-1{
+        flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
+        max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
+    }
+    .l-2{
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+    .l-2-4{
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .l-3{
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .l-4{
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    .l-5{
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+    .l-6{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .l-7{
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+    .l-8{
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+    .l-9{
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .l-10{
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+    .l-11{
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+    .l-12{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .l-o-1{
+        margin-left: 8.33333%;
+    }
+    .l-o-2{
+        margin-left: 16.66667%;
+    }
+    .l-o-2-4{
+        margin-left: 20%;
+    }
+    .l-o-3{
+        margin-left: 25%;
+    }
+    .l-o-4{
+        margin-left: 33.33333%;
+    }
+    .l-o-5{
+        margin-left: 41.66667%;
+    }
+    .l-o-6{
+        margin-left: 50%;
+    }
+    .l-o-7{
+        margin-left: 58.33333%;
+    }
+    .l-o-8{
+        margin-left: 66.66667%;
+    }
+    .l-o-9{
+        margin-left: 75%;
+    }
+    .l-o-10{
+        margin-left: 83.33333%;
+    }
+    .l-o-11{
+        margin-left: 91.66667%;
+    }
+}
+/* > PC low resoluation */
+@media (min-width: 1024px) and (max-width: 1239px){
+    .wide{
+        width: 984px;
+    }
+    .wide .row{
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+    .wide .col{
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .wide .l-0{
+        display: none;
+    }
+    .wide .l-1,
+    .wide .l-2,
+    .wide .l-2-4,
+    .wide .l-3,
+    .wide .l-4,
+    .wide .l-5,
+    .wide .l-6,
+    .wide .l-7,
+    .wide .l-8,
+    .wide .l-9,
+    .wide .l-10,
+    .wide .l-11,
+    .wide .l-12{
+        display: block;
+    } 
+    /* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
+    .wide .l-1{
+        flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
+        max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
+    }
+    .wide .l-2{
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+    .wide .l-2-4{
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .wide .l-3{
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .wide .l-4{
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    .wide .l-5{
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+    .wide .l-6{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .wide .l-7{
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+    .wide .l-8{
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+    .wide .l-9{
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .wide .l-10{
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+    .wide .l-11{
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+    .wide .l-12{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .wide .l-o-1{
+        margin-left: 8.33333%;
+    }
+    .wide .l-o-2{
+        margin-left: 16.66667%;
+    }
+    .wide .l-o-3{
+        margin-left: 25%;
+    }
+    .wide .l-o-4{
+        margin-left: 33.33333%;
+    }
+    .wide .l-o-5{
+        margin-left: 41.66667%;
+    }
+    .wide .l-o-6{
+        margin-left: 50%;
+    }
+    .wide .l-o-7{
+        margin-left: 58.33333%;
+    }
+    .wide .l-o-8{
+        margin-left: 66.66667%;
+    }
+    .wide .l-o-9{
+        margin-left: 75%;
+    }
+    .wide .l-o-10{
+        margin-left: 83.33333%;
+    }
+    .wide .l-o-11{
+        margin-left: 91.66667%;
+    }
+}
+        </style>
+        <style>
+            *{
+    margin: 0;
+    padding: 0;
+}
+.ad_main_body{
+    background-color: #BFEFFF;
+}
+.wrapper{
+    margin: 0px auto;
+}
+.ad_main_navigation{
+    padding: 10px 0px;
+}
+.ad_main_navigation > ul{
+    margin: 0 auto;
+}
+.ad_main_navigation > ul > li{
+    list-style-type: none;   
+}
+.ad_main_navigation > ul > li > a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+}
+.ad_main_navigation > ul > li >a:hover{
+    color: #00BFFF;  
+}
+
+.ad_main_banner{
+    text-align: center;
+}
+.ad_main_banner > img{
+    width: 100%;
+}
+
+.ad_header_introduce{
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding: 10px 0px;
+}
+
+.introduce_items{
+    padding: 15px;
+}
+.introduce_items > .introduce_title{
+    text-align: center;
+    color: #00BFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+.introduce_items > .introduce_content{
+    text-align: justify;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.home-footer{
+    background: url(/img/bg_footer.webp) no-repeat;
+    margin: 0 auto;
+    background-size: cover;
+}
+.home-footer-content .block-content_main{
+    padding: 60px 25px;
+    /*text-align: justify;*/
+}
+.block-content_main_left > img{
+    width: 90%;
+}
+.block-content_main_left > p{
+    margin: 0px;
+    color: white;
+    font-size: 16px;
+    font-family: Arial;
+    text-align: justify;
+    width: 90%;
+    padding-top: 15px;
+}
+.block-content_main_middle > .our_contact,
+.block-content_main_right > .signin_sale{
+    color: #38a8ea;
+    text-transform: uppercase;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 65px;
+    letter-spacing: 1px;
+    width: 90%;
+}
+.block-content_main_middle .address_contact,
+.block-content_main_middle .phone_contact{
+    color: white;
+    font-family: Segoe UI;
+    font-size: 16px;;
+    padding-top: 15px;
+    display: flex;
+    width: 90%;
+}
+.block-content_main_middle .address_contact .fa,
+.block-content_main_middle .phone_contact .fa{
+    padding: 5px 10px 0px 0px;
+    color: #38a8ea;
+}
+.block-content_main_right > div:last-child{
+    color: white;
+    font-family: Segoe UI;
+    font-size: 16px;;
+    padding-top: 15px;
+    width: 90%;
+}
+        </style>
+        <style>
             *{
     margin: 0;
     padding: 0;
@@ -549,614 +1161,6 @@ a.list-items-list:hover::after{
     font-size: 16px;;
     padding-top: 15px;
     width: 90%;
-}
-            *{
-    margin: 0;
-    padding: 0;
-}
-.ad_main_body{
-    background-color: #BFEFFF;
-}
-.wrapper{
-    margin: 0px auto;
-}
-.ad_main_navigation{
-    padding: 10px 0px;
-}
-.ad_main_navigation > ul{
-    margin: 0 auto;
-}
-.ad_main_navigation > ul > li{
-    list-style-type: none;   
-}
-.ad_main_navigation > ul > li > a{
-    text-decoration: none;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-}
-.ad_main_navigation > ul > li >a:hover{
-    color: #00BFFF;  
-}
-
-.ad_main_banner{
-    text-align: center;
-}
-.ad_main_banner > img{
-    width: 100%;
-}
-
-.ad_header_introduce{
-    text-align: center;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    text-transform: uppercase;
-    padding: 10px 0px;
-}
-
-.introduce_items{
-    padding: 15px;
-}
-.introduce_items > .introduce_title{
-    text-align: center;
-    color: #00BFFF;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-}
-.introduce_items > .introduce_content{
-    text-align: justify;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-}
-
-.home-footer{
-    background: url(/img/bg_footer.webp) no-repeat;
-    margin: 0 auto;
-    background-size: cover;
-}
-.home-footer-content .block-content_main{
-    padding: 60px 25px;
-    /*text-align: justify;*/
-}
-.block-content_main_left > img{
-    width: 90%;
-}
-.block-content_main_left > p{
-    margin: 0px;
-    color: white;
-    font-size: 16px;
-    font-family: Arial;
-    text-align: justify;
-    width: 90%;
-    padding-top: 15px;
-}
-.block-content_main_middle > .our_contact,
-.block-content_main_right > .signin_sale{
-    color: #38a8ea;
-    text-transform: uppercase;
-    font-family: Segoe UI;
-    font-size: 18px;
-    font-weight: 700;
-    padding-top: 65px;
-    letter-spacing: 1px;
-    width: 90%;
-}
-.block-content_main_middle .address_contact,
-.block-content_main_middle .phone_contact{
-    color: white;
-    font-family: Segoe UI;
-    font-size: 16px;;
-    padding-top: 15px;
-    display: flex;
-    width: 90%;
-}
-.block-content_main_middle .address_contact .fa,
-.block-content_main_middle .phone_contact .fa{
-    padding: 5px 10px 0px 0px;
-    color: #38a8ea;
-}
-.block-content_main_right > div:last-child{
-    color: white;
-    font-family: Segoe UI;
-    font-size: 16px;;
-    padding-top: 15px;
-    width: 90%;
-}
-            .grid{
-    width: 100%;
-    display: block; /*đề phòng nếu đối tượng ko phải block vẫn dùng được*/
-    padding: 0;
-}
-.grid.wide{
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.row{
-    display: flex; /* chứa các columns, giúp các columns nằm theo chiều ngang  */
-    flex-wrap: wrap; /* khi tổng chiều ngang columns vượt quá kích thước row, cho columns xuống hàng */
-    /* Moblie */
-    margin-left: -4px;
-    margin-right: -4px;
-}
-.row.no-gutters{
-    margin-left: 0px;
-    margin-right: 0px;
-}
-.col{
-    padding-left: 4px;
-    padding-right: 4px;
-}
-.row.no-gutters .col{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.c-0{
-    display: none;
-}
-/* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
-.c-1{
-    flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
-    max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
-}
-.c-2{
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
-}
-.c-2-4{
-    flex: 0 0 20%;
-    max-width: 20%;
-}
-.c-3{
-    flex: 0 0 25%;
-    max-width: 25%;
-}
-.c-4{
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-}
-.c-5{
-    flex: 0 0 41.66667%;
-    max-width: 41.66667%;
-}
-.c-6{
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-.c-7{
-    flex: 0 0 58.33333%;
-    max-width: 58.33333%;
-}
-.c-8{
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
-}
-.c-9{
-    flex: 0 0 75%;
-    max-width: 75%;
-}
-.c-10{
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
-}
-.c-11{
-    flex: 0 0 91.66667%;
-    max-width: 91.66667%;
-}
-.c-12{
-    flex: 0 0 100%;
-    max-width: 100%;
-}
-
-
-.c-o-1{
-    margin-left: 8.33333%;
-}
-.c-o-2{
-    margin-left: 16.66667%;
-}
-.c-o-2-4{
-    margin-left: 20%;
-}
-.c-o-3{
-    margin-left: 25%;
-}
-.c-o-4{
-    margin-left: 33.33333%;
-}
-.c-o-5{
-    margin-left: 41.66667%;
-}
-.c-o-6{
-    margin-left: 50%;
-}
-.c-o-7{
-    margin-left: 58.33333%;
-}
-.c-o-8{
-    margin-left: 66.66667%;
-}
-.c-o-9{
-    margin-left: 75%;
-}
-.c-o-10{
-    margin-left: 83.33333%;
-}
-.c-o-11{
-    margin-left: 91.66667%;
-}
-
-/* Tablet - PC low resoluation */
-@media (min-width: 740px) and (max-width: 1023px){
-    .wide{
-        width: 644px;
-    }
-}
-/* > Tablet */
-@media (min-width: 740px){
-    .row{
-        margin-left: -8px;
-        margin-right: -8px;
-    }
-    .col{
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-    .m-0{
-        display: none;
-    }
-    .m-1,
-    .m-2,
-    .m-2-4,
-    .m-3,
-    .m-4,
-    .m-5,
-    .m-6,
-    .m-7,
-    .m-8,
-    .m-9,
-    .m-10,
-    .m-11,
-    .m-12{
-        display: block;
-    } 
-    /* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
-    .m-1{
-        flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
-        max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
-    }
-    .m-2{
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%;
-    }
-    .m-2-4{
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-    .m-3{
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-    .m-4{
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;
-    }
-    .m-5{
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-    }
-    .m-6{
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    .m-7{
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-    }
-    .m-8{
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%;
-    }
-    .m-9{
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
-    .m-10{
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%;
-    }
-    .m-11{
-        flex: 0 0 91.66667%;
-        max-width: 91.66667%;
-    }
-    .m-12{
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .m-o-1{
-        margin-left: 8.33333%;
-    }
-    .m-o-2{
-        margin-left: 16.66667%;
-    }
-    .m-o-2-4{
-        margin-left: 20%;
-    }
-    .m-o-3{
-        margin-left: 25%;
-    }
-    .m-o-4{
-        margin-left: 33.33333%;
-    }
-    .m-o-5{
-        margin-left: 41.66667%;
-    }
-    .m-o-6{
-        margin-left: 50%;
-    }
-    .m-o-7{
-        margin-left: 58.33333%;
-    }
-    .m-o-8{
-        margin-left: 66.66667%;
-    }
-    .m-o-9{
-        margin-left: 75%;
-    }
-    .m-o-10{
-        margin-left: 83.33333%;
-    }
-    .m-o-11{
-        margin-left: 91.66667%;
-    }
-}
-
-/* PC low resoluation */
-@media (min-width: 1113px){
-    .row{
-        margin-left: -12px;
-        margin-right: -12px;
-    }
-    .col{
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-    .l-0{
-        display: none;
-    }
-    .l-1,
-    .l-2,
-    .l-2-4,
-    .l-3,
-    .l-4,
-    .l-5,
-    .l-6,
-    .l-7,
-    .l-8,
-    .l-9,
-    .l-10,
-    .l-11,
-    .l-12{
-        display: block;
-    } 
-    /* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
-    .l-1{
-        flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
-        max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
-    }
-    .l-2{
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%;
-    }
-    .l-2-4{
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-    .l-3{
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-    .l-4{
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;
-    }
-    .l-5{
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-    }
-    .l-6{
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    .l-7{
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-    }
-    .l-8{
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%;
-    }
-    .l-9{
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
-    .l-10{
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%;
-    }
-    .l-11{
-        flex: 0 0 91.66667%;
-        max-width: 91.66667%;
-    }
-    .l-12{
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .l-o-1{
-        margin-left: 8.33333%;
-    }
-    .l-o-2{
-        margin-left: 16.66667%;
-    }
-    .l-o-2-4{
-        margin-left: 20%;
-    }
-    .l-o-3{
-        margin-left: 25%;
-    }
-    .l-o-4{
-        margin-left: 33.33333%;
-    }
-    .l-o-5{
-        margin-left: 41.66667%;
-    }
-    .l-o-6{
-        margin-left: 50%;
-    }
-    .l-o-7{
-        margin-left: 58.33333%;
-    }
-    .l-o-8{
-        margin-left: 66.66667%;
-    }
-    .l-o-9{
-        margin-left: 75%;
-    }
-    .l-o-10{
-        margin-left: 83.33333%;
-    }
-    .l-o-11{
-        margin-left: 91.66667%;
-    }
-}
-/* > PC low resoluation */
-@media (min-width: 1024px) and (max-width: 1239px){
-    .wide{
-        width: 984px;
-    }
-    .wide .row{
-        margin-left: -12px;
-        margin-right: -12px;
-    }
-    .wide .col{
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-    .wide .l-0{
-        display: none;
-    }
-    .wide .l-1,
-    .wide .l-2,
-    .wide .l-2-4,
-    .wide .l-3,
-    .wide .l-4,
-    .wide .l-5,
-    .wide .l-6,
-    .wide .l-7,
-    .wide .l-8,
-    .wide .l-9,
-    .wide .l-10,
-    .wide .l-11,
-    .wide .l-12{
-        display: block;
-    } 
-    /* chia cot bang cach lay 100% chia cho tong so cot muon chia (12) nhan cho cot thu may (1, 2,..., 12) */
-    .wide .l-1{
-        flex: 0 0 8.33333%; /* grow shrink basis */ /* flex-basis dung de thiet lap chieu ngang (khi dung flex-direction: row) hoac chieu doc (khi dung flex-direction: columns) */
-        max-width: 8.33333%; /* gioi han kich thuoc chieu ngang */
-    }
-    .wide .l-2{
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%;
-    }
-    .wide .l-2-4{
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-    .wide .l-3{
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-    .wide .l-4{
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;
-    }
-    .wide .l-5{
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-    }
-    .wide .l-6{
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    .wide .l-7{
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-    }
-    .wide .l-8{
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%;
-    }
-    .wide .l-9{
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
-    .wide .l-10{
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%;
-    }
-    .wide .l-11{
-        flex: 0 0 91.66667%;
-        max-width: 91.66667%;
-    }
-    .wide .l-12{
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .wide .l-o-1{
-        margin-left: 8.33333%;
-    }
-    .wide .l-o-2{
-        margin-left: 16.66667%;
-    }
-    .wide .l-o-3{
-        margin-left: 25%;
-    }
-    .wide .l-o-4{
-        margin-left: 33.33333%;
-    }
-    .wide .l-o-5{
-        margin-left: 41.66667%;
-    }
-    .wide .l-o-6{
-        margin-left: 50%;
-    }
-    .wide .l-o-7{
-        margin-left: 58.33333%;
-    }
-    .wide .l-o-8{
-        margin-left: 66.66667%;
-    }
-    .wide .l-o-9{
-        margin-left: 75%;
-    }
-    .wide .l-o-10{
-        margin-left: 83.33333%;
-    }
-    .wide .l-o-11{
-        margin-left: 91.66667%;
-    }
 }
         </style>
     </head>
